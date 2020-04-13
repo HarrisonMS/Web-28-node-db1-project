@@ -14,6 +14,7 @@ WHERE SupplierId = 11
 SELECT * FROM Orders
 ORDER BY OrderDate desc
 LIMIT 10
+
 -- Find all customers that live in London, Madrid, or Brazil
 SELECT * FROM Customers
 WHERE City 
@@ -39,3 +40,20 @@ FROM Customers
 SELECT *
 fROM Suppliers
 WHERE length(SupplierName) > 20
+
+
+-- double stretch the c
+
+SELECT Products.ProductID
+	, Products.Unit
+  , Products.Price
+	, Products.ProductName
+  , Suppliers.SupplierName
+  , Suppliers.ContactName 
+FROM products
+INNER JOIN Suppliers 
+ON Products.SupplierID = Suppliers.SupplierID
+WHERE Price 
+BETWEEN 18 and 40
+ORDER BY ProductID DESC
+LIMIT 10
