@@ -4,8 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
 	db
-		.select('*')
-    .from('accounts')
+		('accounts')
 		.then((accounts) => {
 			res.status(200).json({ data: accounts });
 		})
@@ -15,6 +14,19 @@ router.get('/', (req, res) => {
 		});
 });
 
+router.get('/:id', (req, res) => {
+  db
+  ('accounts')
+  .where({ id: req.params.id })
+  .first()
+  .then((account) => {
+    res.status(200).json({data: account})
+  })
+  .catch((error) => {
+    console.log(error)
+    res.status(500).json({ errorMessage: 'there was an error retrieveing that account' })
+  })
+})
 
 
 module.exports = router;
