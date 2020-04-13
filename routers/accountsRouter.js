@@ -28,5 +28,23 @@ router.get('/:id', (req, res) => {
   })
 })
 
+router.post('/', (req, res) => {
+  const postData = req.body
+	db('accounts')
+    .insert(postData, 'id')
+    .then(ids => {
+      const id = ids[0]
+        db('accounts')
+        .where({ id })
+        .first()
+        .then(account => {
+            res.status(201).json({data: account});
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).json({ errorMessage: 'There was an error with POST of that account data' });
+    });
+});
 
 module.exports = router;
