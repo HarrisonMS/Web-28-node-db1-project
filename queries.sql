@@ -42,7 +42,8 @@ fROM Suppliers
 WHERE length(SupplierName) > 20
 
 
--- double stretch the c
+-- double stretch the client want a endpoint to show the last 10 products
+-- price name supplier name contact name with a a price between 18 and 40
 
 SELECT Products.ProductID
 	, Products.Unit
