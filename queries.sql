@@ -43,14 +43,14 @@ WHERE length(SupplierName) > 20
 
 
 -- double stretch the client want a endpoint to show the last 10 products
--- price name supplier name contact name with a a price between 18 and 40
+-- price name supplier name contact name with a price between 18 and 40
 
-SELECT Products.ProductID
-	, Products.Unit
-  , Products.Price
-	, Products.ProductName
-  , Suppliers.SupplierName
-  , Suppliers.ContactName 
+SELECT ProductID
+	, Unit
+  , Price
+	, ProductName
+  , SupplierName
+  , ContactName 
 FROM products
 INNER JOIN Suppliers 
 ON Products.SupplierID = Suppliers.SupplierID
@@ -58,3 +58,5 @@ WHERE Price
 BETWEEN 18 and 40
 ORDER BY ProductID DESC
 LIMIT 10
+
+
